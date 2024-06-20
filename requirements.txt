@@ -1,0 +1,4 @@
+fastapi
+pydantic
+# fastapi~=0.111.0
+# pydantic~=2.7.4
