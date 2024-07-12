@@ -25,8 +25,8 @@ async def predict_endpoint(input_data: InputData):
 
 # Define a route to handle GET requests
 @app.get("/")
-async def read_root():
-return {"message": "Welcome to the ML API and enjoy!"}
+    async def read_root():
+    return {"message": "Welcome to the ML API and enjoy!"}
 
 # ###########################
 # from fastapi import FastAPI
