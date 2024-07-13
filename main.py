@@ -4,24 +4,36 @@ from pydantic import BaseModel
 # Create an instance of FastAPI
 app = FastAPI()
 
-# Define a Pydantic model for the input data
-class InputData(BaseModel):
-    feature1: float
-    feature2: float
-    feature3: float
+@app.post("/sum")
+async def receive_data(data: dict):
+    feature1 = data.get("feature1")
+    feature2 = data.get("feature2")
+    feature3 = data.get("feature3")
 
-# Define your machine learning model function
-def predict(input_data: InputData) -> float:
-    # Here, you would have your actual machine learning model logic
-    # For demonstration purposes, let's just return a dummy value
-    return input_data.feature1 + input_data.feature2 + input_data.feature3
+    # Perform validation (optional)
 
-# Define a route to handle POST requests
-@app.post("/predict/")
-async def predict_endpoint(input_data: InputData):
-    # Call the predict function with the input data
-    prediction = predict(input_data)
-    return {"prediction": prediction}
+    sum_value = feature1 + feature2 + feature3
+    return {"sum": sum_value}
+
+
+# # Define a Pydantic model for the input data
+# class InputData(BaseModel):
+#     feature1: float
+#     feature2: float
+#     feature3: float
+
+# # Define your machine learning model function
+# def predict(input_data: InputData) -> float:
+#     # Here, you would have your actual machine learning model logic
+#     # For demonstration purposes, let's just return a dummy value
+#     return input_data.feature1 + input_data.feature2 + input_data.feature3
+
+# # Define a route to handle POST requests
+# @app.post("/predict/")
+# async def predict_endpoint(input_data: InputData):
+#     # Call the predict function with the input data
+#     prediction = predict(input_data)
+#     return {"prediction": prediction}
 
 # Define a route to handle GET requests
 @app.get("/")
