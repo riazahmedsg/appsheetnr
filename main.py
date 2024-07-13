@@ -1,19 +1,19 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+# from pydantic import BaseModel
 
 # Create an instance of FastAPI
 app = FastAPI()
 
-@app.post("/sum")
+@app.post("/predict")
 async def receive_data(data: dict):
     feature1 = data.get("feature1")
     feature2 = data.get("feature2")
     feature3 = data.get("feature3")
 
-    # Perform validation (optional)
+# Perform validation (optional)
 
-    sum_value = feature1 + feature2 + feature3
-    return {"sum": sum_value}
+sum_value = feature1 + feature2 + feature3
+return {"sum": sum_value}
 
 
 # # Define a Pydantic model for the input data
