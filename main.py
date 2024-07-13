@@ -12,8 +12,8 @@ async def receive_data(data: dict):
 
 # Perform validation (optional)
 
-sum_value = feature1 + feature2 + feature3
-return {"sum": sum_value}
+    sum_value = feature1 + feature2 + feature3
+    return {"sum": sum_value}
 
 
 # # Define a Pydantic model for the input data
