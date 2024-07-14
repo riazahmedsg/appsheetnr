@@ -13,6 +13,7 @@ async def receive_data(data: dict):
 # Perform validation (optional)
 
     sum_value = feature1 + feature2 + feature3
+    print(sum_value)
     return {"sum": sum_value}
 
 
